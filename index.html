@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Guidelines for Real-time Apps</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .tip {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .checklist {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .checklist h2 {
+            margin-top: 0;
+        }
+        .checklist ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>3D Model Guidelines for Real-time Applications</h1>
+    
+    <p>Follow these guidelines to ensure your 3D models are optimized for real-time applications:</p>
+    
+    <h2>1. Polycount and Geometry</h2>
+    <ul>
+        <li>Aim for low poly models, typically under 10,000 triangles for main characters/objects</li>
+        <li>Use quads whenever possible for easier editing and cleaner topology</li>
+        <li>Avoid n-gons (polygons with more than 4 sides)</li>
+        <li>Utilize LODs (Level of Detail) for distant objects</li>
+    </ul>
+    
+    <h2>2. UV Mapping</h2>
+    <ul>
+        <li>Create clean, non-overlapping UV maps</li>
+        <li>Maximize texture space usage</li>
+        <li>Use texture atlasing for efficiency</li>
+        <li>Keep UVs within 0-1 space</li>
+    </ul>
+    
+    <h2>3. Textures</h2>
+    <ul>
+        <li>Use power-of-two texture sizes (e.g., 512x512, 1024x1024)</li>
+        <li>Compress textures appropriately (e.g., DXT for normal maps)</li>
+        <li>Create texture sets: Albedo, Normal, Roughness, Metallic, etc.</li>
+        <li>Aim for 2K textures max for main assets, 1K or lower for secondary assets</li>
+    </ul>
+    
+    <h2>4. Materials</h2>
+    <ul>
+        <li>Use PBR (Physically Based Rendering) materials when possible</li>
+        <li>Limit the number of materials per model</li>
+        <li>Avoid highly reflective or transparent materials when possible</li>
+    </ul>
+    
+    <h2>5. Rigging and Animation</h2>
+    <ul>
+        <li>Keep bone count low, typically under 50-70 bones for main characters</li>
+        <li>Use weight painting to ensure smooth deformations</li>
+        <li>Provide clear naming conventions for bones and animations</li>
+    </ul>
+    
+    <h2>6. File Formats and Delivery</h2>
+    <ul>
+        <li>Use industry-standard formats like FBX or glTF</li>
+        <li>Include separate files for high-poly source and game-ready low-poly models</li>
+        <li>Provide documentation for any special instructions or notes</li>
+    </ul>
+    
+    <div class="tip">
+        <strong>Pro Tip:</strong> Always test your models in the target engine or application to ensure they perform as expected in real-time environments.
+    </div>
+
+    <div class="checklist">
+        <h2>Pre-Delivery Checklist</h2>
+        <p>Use this checklist to ensure your 3D model is ready for delivery:</p>
+        <ul>
+            <li><input type="checkbox"> Polycount is within specified limits</li>
+            <li><input type="checkbox"> All geometry is quad-based (or triangulated if required)</li>
+            <li><input type="checkbox"> No n-gons present in the mesh</li>
+            <li><input type="checkbox"> UV maps are clean and non-overlapping</li>
+            <li><input type="checkbox"> All UVs are within 0-1 space</li>
+            <li><input type="checkbox"> All textures are applied and mapped correctly</li>
+            <li><input type="checkbox"> Texture resolutions match project requirements</li>
+            <li><input type="checkbox"> All normals are facing the correct direction</li>
+            <li><input type="checkbox"> No holes or gaps in the mesh</li>
+            <li><input type="checkbox"> No floating or disconnected vertices</li>
+            <li><input type="checkbox"> Smooth shading is applied correctly</li>
+            <li><input type="checkbox"> Materials are set up correctly (PBR if applicable)</li>
+            <li><input type="checkbox"> Rigging is complete and weights are painted (if animated)</li>
+            <li><input type="checkbox"> Animations play correctly without glitches</li>
+            <li><input type="checkbox"> LODs are created and functioning properly (if required)</li>
+            <li><input type="checkbox"> Pivot point is placed correctly</li>
+            <li><input type="checkbox"> Scale is correct according to project requirements</li>
+            <li><input type="checkbox"> All objects and materials are named according to conventions</li>
+            <li><input type="checkbox"> Model has been tested in the target engine/application</li>
+            <li><input type="checkbox"> All necessary maps (normal, specular, etc.) are included</li>
+            <li><input type="checkbox"> File is saved in the correct format (FBX, glTF, etc.)</li>
+            <li><input type="checkbox"> Documentation is prepared (if necessary)</li>
+        </ul>
+    </div>
+</body>
+</html>
