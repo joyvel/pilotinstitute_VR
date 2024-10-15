@@ -57,15 +57,16 @@
     <ul>
         <li>Aim for low poly models, delete geometry that won't be visible to the camera</li>
         <li>Use quads whenever possible for easier editing and cleaner topology</li>
-        <li>Avoid n-gons when possible, but keep them on completely flat surfaces</li>
+        <li>Add a triangulate modifier to the mesh but only apply it on the export settings</li>
+        <li>Avoid n-gons when possible, although for completely flat surfaces they're ok, just keep the triangle count low in these areas</li>
     </ul>
     
     <h2>2. UV Mapping</h2>
     <ul>
-        <li>Create clean, non-overlapping UV maps (except when several objects use the same texture and color)</li>
+        <li>Create clean, non-overlapping UV maps except when several objects use the same texture and color (atlas)</li>
         <li>Use texture atlasing for efficiency</li>
         <li>Maximize texture space usage</li>
-        <li>Keep UVs within 0-1 space</li>
+        
     </ul>
     
     <h2>3. Textures</h2>
@@ -92,7 +93,8 @@
     <h2>6. File Formats and Delivery</h2>
     <ul>
         <li>Please share the blender file with packed textures or the textures on a separate folder</li>
-        <li>Include a separate file for the high poly or original file, and the final low poly models</li>
+        <li>According to the developer's specifications export textures required for the game engine</li>
+        <li>Include a separate files for the high poly or original file, and the final low poly models</li>
         <li>Export .FBX files ready to be imported in Unity or the filetype specified by the developers</li>
         <li>Provide documentation for any special instructions or notes</li>
     </ul>
@@ -106,24 +108,23 @@
         <p>Use this checklist to ensure your 3D model is ready for delivery:</p>
         <ul>
             <li><input type="checkbox"> Poly-count is within specified limits</li>
-            <li><input type="checkbox"> All geometry is quad-based (or triangulated if required)</li>
+            <li><input type="checkbox"> All geometry is quad-based (with a triangulate modifier)</li>
             <li><input type="checkbox"> No n-gons present in the mesh unless for completely flat surfaces</li>
             <li><input type="checkbox"> UV maps are clean and non-overlapping (or overlapping correctly if creating an atlas)</li>
             <li><input type="checkbox"> All textures are applied and mapped correctly</li>
             <li><input type="checkbox"> Texture resolutions match project requirements</li>
+            <li><input type="checkbox"> All necessary maps (normal, specular, etc.) are included, please check all maps for imperfections</li>
             <li><input type="checkbox"> All normals are facing the correct direction</li>
             <li><input type="checkbox"> No holes or gaps in the mesh revealing flipped normals underneath</li>
             <li><input type="checkbox"> Make sure no overlapping vertices or meshes are present</li>
             <li><input type="checkbox"> No floating or disconnected vertices</li>
-            <li><input type="checkbox"> Smooth shading is applied correctly</li>
-            <li><input type="checkbox"> Materials are set up correctly (PBR if applicable)</li>
-            <li><input type="checkbox"> Rigging is complete and weights are painted (if animated)</li>
+            <li><input type="checkbox"> Smooth shading is applied correctly and sharp edges</li>
+            <li><input type="checkbox"> Rigging is complete and weights are painted on all vertices even if the weight is zero (if animated)</li>
             <li><input type="checkbox"> Animations play correctly without glitches</li>
             <li><input type="checkbox"> Pivot points are placed correctly (specially for control surfaces)</li>
-            <li><input type="checkbox"> Scale is correct according to project requirements</li>
-            <li><input type="checkbox"> All objects and materials are named according to conventions</li>
+            <li><input type="checkbox"> Scale and rotation is correct according to project requirements (apply transforms)</li>
+            <li><input type="checkbox"> All objects and materials are named according to conventions (parts of the model you can name, otherwise use generic names)</li>
             <li><input type="checkbox"> Model has been tested in the target engine/application (optional)</li>
-            <li><input type="checkbox"> All necessary maps (normal, specular, etc.) are included</li>
             <li><input type="checkbox"> File is saved in the correct format (FBX, glTF, etc.)</li>
             <li><input type="checkbox"> Documentation is prepared (if necessary)</li>
         </ul>
