@@ -46,6 +46,19 @@
         .checklist input[type="checkbox"] {
             margin-right: 10px;
         }
+        #completionMessage {
+            display: none;
+            background-color: #2ecc71;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #completionMessage a {
+            color: #ffffff;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -103,10 +116,14 @@
         <strong>Pro Tip:</strong> If possible test your models in the target engine or application to ensure they perform as expected in real-time environments.
     </div>
 
+    <div id="completionMessage">
+        Your work is ready to be uploaded to <a href="https://drive.google.com/drive/folders/11m5k1DodNI3KICLYhWHGLe0AskRsrSqQ" target="_blank">the cloud</a>
+    </div>
+    
     <div class="checklist">
         <h2>Pre-Delivery Checklist</h2>
         <p>Use this checklist to ensure your 3D model is ready for delivery:</p>
-        <ul>
+        <ul id="deliveryChecklist">
             <li><input type="checkbox"> Poly-count is within specified limits</li>
             <li><input type="checkbox"> All geometry is quad-based (with a optional triangulate modifier)</li>
             <li><input type="checkbox"> No n-gons present in the mesh unless for completely flat surfaces</li>
@@ -129,5 +146,27 @@
             <li><input type="checkbox"> Documentation is prepared (if necessary)</li>
         </ul>
     </div>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('#deliveryChecklist input[type="checkbox"]');
+            const completionMessage = document.getElementById('completionMessage');
+
+            function checkAllCompleted() {
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                if (allChecked) {
+                    completionMessage.style.display = 'block';
+                } else {
+                    completionMessage.style.display = 'none';
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', checkAllCompleted);
+            });
+        });
+    </script>
+
 </body>
 </html>
