@@ -57,7 +57,7 @@
     <ul>
         <li>Aim for low poly models, delete geometry that won't be visible to the camera</li>
         <li>Use quads whenever possible for easier editing and cleaner topology</li>
-        <li>Add a triangulate modifier to the mesh but only apply it on the export settings</li>
+        <li>Add a triangulate modifier to the mesh but only apply it on the export settings just to check how triangles look in complex meshes (optional)</li>
         <li>Avoid n-gons when possible, although for completely flat surfaces they're ok, just keep the triangle count low in these areas</li>
     </ul>
     
@@ -108,7 +108,7 @@
         <p>Use this checklist to ensure your 3D model is ready for delivery:</p>
         <ul>
             <li><input type="checkbox"> Poly-count is within specified limits</li>
-            <li><input type="checkbox"> All geometry is quad-based (with a triangulate modifier)</li>
+            <li><input type="checkbox"> All geometry is quad-based (with a optional triangulate modifier)</li>
             <li><input type="checkbox"> No n-gons present in the mesh unless for completely flat surfaces</li>
             <li><input type="checkbox"> UV maps are clean and non-overlapping (or overlapping correctly if creating an atlas)</li>
             <li><input type="checkbox"> All textures are applied and mapped correctly</li>
