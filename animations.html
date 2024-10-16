@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blender Animation Workflow Guidelines - Pilot Institute</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #000000;
+        }
+        h1, h2 {
+            color: #3498db;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        .tip {
+            background-color: #1a2733;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .checklist {
+            background-color: #111111;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .checklist h2 {
+            margin-top: 0;
+        }
+        .checklist ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animation Workflow Guidelines - Pilot Institute</h1>
+    
+    <p>Follow these steps to ensure a smooth animation workflow in Blender:</p>
+    
+    <ol>
+        <li>Set the frame rate to 30 fps in the Output Properties panel.</li>
+        <li>Set the resolution to 3840 x 2160 pixels (4K UHD) in the Output Properties panel.</li>
+        <li>Make sure whe you send the file to include all dependencies, please don't pack them in the .blend file</li>
+        <li>Verify that the scale of models and the world is correct. Apply scale transformations if necessary.</li>
+        <li>Unpack textures to a relative folder next to the project file. Ensure no textures are missing before sending the file.</li>
+        <li>Create animations following the provided script, instructions, or audio track for accurate timing.</li>
+        <li>Render a preview using the viewport or Workbench renderer for approval. Send this preview along with the Blender file.</li>
+        <li>For each sequence, create a new file using the following naming convention:
+            <ul>
+                <li>Original file: helicopter.blend</li>
+                <li>Sequence 4: helicopter_S4.blend</li>
+                <li>Sequence 4, Variation 2: helicopter_S4V2.blend</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="tip">
+        <strong>Pro Tip:</strong> For every new Blender file with new animations or variations of the same model, send only the new textures added to the new sequences, these are going to be combined
+        with the other textures in the same textures folder, this is to minimize project size and avoid repeated assets.
+    </div>
+
+    <div class="checklist">
+        <h2>Pre-Delivery Checklist</h2>
+        <ul>
+            <li><input type="checkbox"> Frame rate set to 30 fps</li>
+            <li><input type="checkbox"> Resolution set to 3840 x 2160 pixels (4K UHD)</li>
+            <li><input type="checkbox"> Model and world scales are correct</li>
+            <li><input type="checkbox"> Textures unpacked and all present</li>
+            <li><input type="checkbox"> Animations timed correctly to script/audio</li>
+            <li><input type="checkbox"> Preview render completed</li>
+            <li><input type="checkbox"> File named correctly (e.g., helicopter_S4V2.blend)</li>
+            <li><input type="checkbox"> Include a .txt file for comments or documentation if necessary</li>
+            <li><input type="checkbox"> All necessary files included (Blender file, textures, preview)</li>
+            
+        </ul>
+    </div>
+</body>
+</html>
