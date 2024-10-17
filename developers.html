@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Guidelines for Real-time Applications - Pilot Institute</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #d9d9d9;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #000000;
+        }
+        h1, h2, h3 {
+            color: white;
+        }
+        pre {
+            background-color: #373737;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .tip {
+            background-color: #1a2733;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .checklist {
+            background-color: #111111;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .checklist h2 {
+            margin-top: 0;
+        }
+        .checklist ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        #completionMessage {
+            display: none;
+            background-color: #2ecc71;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #completionMessage a {
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Developer Guidelines for Real-time Applications - Pilot Institute</h1>
+
+    <p>Follow these guidelines to ensure the Unity project is optimized for real-time applications and to keep the pipeline flowing:</p>
+
+    <h2>Documentation:</h2>
+
+    <p>Developers will be responsible for documenting their work and will particular attention when documenting the following:</p>
+
+    <ul>
+        <li>Layer uses (for collision, culling, and raycasting -- essentially, what should be in what layer).</li>
+        <li>Tag uses.</li>
+        <li>UI depths for layers (what should display over what).</li>
+        <li>Scene setup.</li>
+        <li>Idiom preferences.</li>
+        <li>Prefab structure.</li>
+        <li>Animation layers.</li>
+        <li>The organisation of your scenes, project folder, and script folder should follow a similar pattern.</li>
+    </ul>
+
+    <h2>Folder Structure:</h2>
+
+    <p>The following structure should be used when organising the scenes, project folder, and script folder.</p>
+
+    <h3>Assets Folder Structure:</h3>
+
+    <pre>
++---Art
+| +---Materials
+| +---Models
+| +---Textures
+| +---UI
+| +---Effects
++---Audio
+| +---Music
+| +---Sound
++---Scripts
++---Shaders
++---Docs
++---Scenes
++---Prefabs
+| +---UI
+| +---Models
+| +---Misc
+    </pre>
+
+    <h3>Scene Structure:</h3>
+
+    <p>The developer should employ empty parent GameObjects to organise the various scene elements into children as follows:</p>
+
+    <pre>
++--- Cameras
++---Dynamic Objects
++---UI
+| +---HUD
+| +---Menus
++---System Managers
++---Lights
++---World
+| +---Ground
+| +---Props
+| +---Structure
+    </pre>
+
+    <h3>Scripts Folder Structure:</h3>
+
+    <pre>
++--- ThirdParty
++--- GenericScripts
+| +---Debug
+| +---Extensions
+| +---Framework
+| +---Graphics
+| +---IO
+| +---Math
++---ApplicationScripts
+| +---Debug
+| +---ApplicationLogic
+| +---Framework
+| +---Graphics
+| +---UI
+    </pre>
+
+    <h2>Naming Conventions and coding guidelines:</h2>
+
+    <p>Developers will aim to adhere to <strong>C#</strong> standards, and will avoid using <em>JavaScript/UnityScript.</em> Consequently, our coding standards will minimize the usage of <em>hyphens (--)* and *underscores (_)</em>.</p>
+
+    <h3>Namespaces should all be PascalCase:</h3>
+
+    <p>For example,</p>
+
+    <pre>Avangarde.CurrentApplication.UI.MainMenu</pre>
+
+    <h3>Classes and Methods should all be PascalCase:</h3>
+
+    <p>For example,</p>
+
+    <pre>
+public class MyClass
+{
+    public void SomeMethod{}
+}
+    </pre>
+
+    <h3>Fields should all be camelCase:</h3>
+
+    <p>For example,</p>
+
+    <pre>public static int SomeStaticValue = 10;</pre>
+
+    <h3>Properties should all be PascalCase:</h3>
+
+    <p>For example,</p>
+
+    <pre>
+private string name
+public string Name
+{
+    get
+    {
+        return name;
+    }
+    set
+    {
+        name = value;
+    }
+};
+    </pre>
+
+    <h3>Parameters should all be camelCase:</h3>
+
+    <p>For example,</p>
+
+    <pre>public void HighlightElement(bool someCondition)</pre>
+
+    <h3>Callback suffixes should be added to all delegates:</h3>
+
+    <p>For example, when declaring a delegate type for processing a user,</p>
+
+    <pre>public delegate void ProcessUserCallback(User u);</pre>
+
+    <h3>Declarations:</h3>
+
+    <p>Access level modifiers should be used at all times. The compiler will infer that something is private if you don't provide an access modifier, but that doesn't imply you shouldn't use the keyword private.</p>
+
+    <p>For example,</p>
+
+    <pre>private int privateVariable;</pre>
+
+    <h3>Developers should use a separate line for all variable declarations:</h3>
+
+    <p>For example,</p>
+
+    <pre>
+private int firstVariable;
+private int secondVariable;
+    </pre>
+
+    <h3>Developers should declare just one class or interface per source file. All interfaces should be prefaced with an I:</h3>
+
+    <p>For example,</p>
+
+    <pre>IPointerDown</pre>
+
+    <h2>Prefab use:</h2>
+
+    <p>Developers should make full use of prefabs for scene creation and ensure that prefab connections are maintained across scenes:</p>
+
+    <h3>Spacing in scripts:</h3>
+
+    <p>As a rule of thumb all scripts should minimise redundant whitespace. Developers are encouraged to use Visual Studio Community's auto formatting features such as the use of the shortcut, ctrl + shift + F after selecting a block of code to tidy up tab spacing.</p>
+
+    <p>Insert a single blank line between methods to enhance the class's structural clarity. Similarly, include a blank line within methods to delineate distinct functionalities. For instance, if a method involves object creation and initialization, it's advisable to separate these aspects. If a method encompasses multiple logical segments, consider refactoring by creating separate methods, each responsible for a specific task.</p>
+
+    <h2>Version Control:</h2>
+
+    <p>Developers will use version control software, such as <strong>GIT, SourceTree,</strong> or <strong>Subversion</strong> to interact and make changes to the project repository. A code review process will be set up and adhered to before committing or merging any changes to the repository. Initial development of a feature will be done on the develop branch of the repository and merged later onto the main branch.</p>
+
+    <h2>Testing:</h2>
+
+    <p>Developers will be responsible for all testing and debugging of an assigned feature. For larger feature-sets a second developer should also assist with testing and debugging the functionality.</p>
+
+    <h2>Pre-Delivery Checklist</h2>
+
+    <p>Use this checklist to ensure your work is ready for delivery:</p>
+
+    <div id="completionMessage">
+        Your work is ready to be uploaded to <a href="https://drive.google.com/drive/folders/11m5k1DodNI3KICLYhWHGLe0AskRsrSqQ" target="_blank">the cloud</a>, or to commit.
+    </div>
+
+    <div class="checklist">
+        <ul id="deliveryChecklist">
+            <li> <input type="checkbox">Your code is fully documented.</li>
+            <li><input type="checkbox">All naming conventions for variables/functions/classes are adhered to.</li>
+            <li><input type="checkbox">Your scene is tidy and well organised with all prefab connections maintained.</li>
+            <li><input type="checkbox">The feature is fully tested on device and does not interfere with any other feature's logic.</li>
+        </ul>
+    </div>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('#deliveryChecklist input[type="checkbox"]');
+            const completionMessage = document.getElementById('completionMessage');
+
+            function checkAllCompleted() {
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                if (allChecked) {
+                    completionMessage.style.display = 'block';
+                } else {
+                    completionMessage.style.display = 'none';
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', checkAllCompleted);
+            });
+        });
+    </script>
+</body>
+</html>
